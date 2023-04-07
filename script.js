@@ -3,14 +3,14 @@
 var upperCase;
 var lowerCase;
 var number;
-var specChar;
+var specChars;
 var length;
 
 // Variables that will be used to create arrays based on user selection.
 var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var number = ['1','2','3','4','5','6','7','8','9','0'];
-var specChar = ['!','@','#','$','%','^','&','*','(',')','_','+'];
+var numbers = ['1','2','3','4','5','6','7','8','9','0'];
+var specChars = ['!','@','#','$','%','^','&','*','(',')','_','+'];
 
 function generatePassword(){
 
@@ -32,50 +32,51 @@ function generatePassword(){
    var number = confirm('Would you like to include numbers?');
    console.log(number);
 
-   var specChar = confirm('Would you like to include special characters?');
-   console.log(specChar);
+   var specs = confirm('Would you like to include special characters?');
+   console.log(specs);
 
-   if (!upperCase && !lowerCase && !number && !specChar) {
+   if (!upper && !lower && !number && !specChars) {
     var userChoice = alert('You must choose at least 1 character preference, cannot create password!');
     console.log(userChoice);
 
-   } else if (upperCase && lowerCase && number && specChar) {  //////////////// Why are number and specChar returning as 'True' in console instead of what is in the array?
-    var userChoice = upperCase.concat(lowerCase,number,specChar);
+   } else if (upper && lower && number && specs) {  //////////////// Why are number and specChar returning as 'True' in console instead of what is in the array? - Because I was using the same variable name as my array above.
+    var userChoice = upperCase.concat(lowerCase,numbers,specChars);
     console.log(userChoice);
 
-   } else if (upperCase && lowerCase && number) {
-    var userChoice = upperCase.concat(lowerCase, number);
+   } else if (upper && lower && number) {
+    var userChoice = upperCase.concat(lowerCase, numbers);
     console.log(userChoice);
 
-   } else if (upperCase && lowerCase && specChar) {
-    var userChoice = upperCase.concat(lowerCase, specChar);
+   } else if (upper && lower && specs) {
+    var userChoice = upperCase.concat(lowerCase, specChars);
     console.log(userChoice);
 
-   } else if (upperCase && number && specChar) {
-    var userChoice = upperCase.concat(number, specChar);
+   } else if (upper && number && specs) {
+    var userChoice = upperCase.concat(numbers, specChars);
     console.log(userChoice);
 
-   } else if (lowerCase && number && specChar) {
-    var userChoice = lowerCase.concat(number, specChar);
+   } else if (lower && number && specs) {
+    var userChoice = lowerCase.concat(numbers, specChars);
     console.log(userChoice);
 
-   } else if (lowerCase && number) {
-    var userChoice = lowerCase.concat(number);
+   } else if (lower && number) {
+    var userChoice = lowerCase.concat(numbers);
+    console.log(userChoice);
+    
+
+   } else if (lower && specs) {
+    var userChoice = lowerCase.concat(specChars);
     console.log(userChoice);
 
-   } else if (lowerCase && specChar) {
-    var userChoice = lowerCase.concat(specChar);
+   } else if (number && specs) {
+    var userChoice = numbers.concat(specChars);
     console.log(userChoice);
 
-   } else if (number && specChar) {
-    var userChoice = number.concat(specChar);
-    console.log(userChoice);
-
-   } else if (upperCase) {
+   } else if (upper) {
     var userChoice = upper;
     console.log(userChoice);
 
-   } else if (lowerCase) {
+   } else if (lower) {
     var userChoice = lower;
     console.log(userChoice);
 
@@ -83,8 +84,8 @@ function generatePassword(){
     var userChoice = number;
     console.log(userChoice);
 
-   } else if (specChar) {
-    var userChoice = specChar;
+   } else if (specs) {
+    var userChoice = specChars;
     console.log(userChoice);
 
    }
